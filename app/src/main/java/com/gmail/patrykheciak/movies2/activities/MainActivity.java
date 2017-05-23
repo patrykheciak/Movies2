@@ -28,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private MovieListAdapter myAdapter;
 
+    public static final String EXTRA_MOVIE = "EXTRA_MOVIE";
+    public static final String EXTRA_RESULT = "EXTRA_RESULT";
+    public static final String MOVIES = "MOVIES";
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -39,12 +43,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("d", "onCreate sIS" + String.valueOf(savedInstanceState == null));
-
         if (savedInstanceState == null)
             prepareMovieData();
         else
-            movieList = savedInstanceState.getParcelableArrayList("movies");
+            movieList = savedInstanceState.getParcelableArrayList(MOVIES);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
@@ -52,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onMovieClicked(Movie item, int position) {
                 Intent i = new Intent(getApplicationContext(), DetailsActivity.class);
-                i.putExtra("extra", (Serializable) movieList.get(position));
+                i.putExtra(EXTRA_MOVIE, (Serializable) movieList.get(position));
                 startActivityForResult(i, position);
             }
         });
@@ -71,15 +73,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == RESULT_OK) {
-            Movie m = data.getParcelableExtra("result");
-            Log.d("d", "result " + m);
+            Movie m = data.getParcelableExtra(EXTRA_RESULT);
             movieList.set(requestCode, m);
         }
     }
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
-        outState.putParcelableArrayList("movies", (ArrayList<? extends Parcelable>) movieList);
+        outState.putParcelableArrayList(MOVIES, (ArrayList<? extends Parcelable>) movieList);
     }
 
     private void prepareMovieData() {

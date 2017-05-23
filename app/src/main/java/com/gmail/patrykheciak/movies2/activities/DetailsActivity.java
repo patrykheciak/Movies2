@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
 
@@ -28,25 +27,22 @@ public class DetailsActivity extends AppCompatActivity {
     private FrameLayout bottom;
     private FrameLayout top;
 
-    public DetailsActivity() {
+    private final String FRAGMENT_A = "FRAGMENT_A";
+    private final String FRAGMENT_B = "FRAGMENT_B";
+    private final String FRAGMENT_C = "FRAGMENT_C";
+    private final String A_TO_BC = "A_TO_BC";
 
-    }
-
+    public DetailsActivity() {}
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
 
-        Log.d("DetailsActivity", "onCreate");
-
-        movie = (Movie) getIntent().getSerializableExtra("extra");
+        movie = (Movie) getIntent().getSerializableExtra(MainActivity.EXTRA_MOVIE);
         top = (FrameLayout) findViewById(R.id.top);
         bottom = (FrameLayout) findViewById(R.id.bottom);
 
-//        if (savedInstanceState == null) {
-
-        Log.d("DetailsActivity", "Created all the fragments");
         fDetails = new DetailsFragment();
         fDetails.setMovie(movie);
         fDetails.setGalleryAndCastListener(new OnGalleryAndCastRequestedListener() {
@@ -61,7 +57,6 @@ public class DetailsActivity extends AppCompatActivity {
 
         fGallery = new GalleryFragment();
         fGallery.setMovie(movie);
-//        }
 
         showDetailsFragment();
     }
@@ -69,7 +64,7 @@ public class DetailsActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (getSupportFragmentManager().findFragmentByTag("B") != null) {
+        if (getSupportFragmentManager().findFragmentByTag(FRAGMENT_C) != null) {
             top.setVisibility(View.VISIBLE);
             bottom.setVisibility(View.VISIBLE);
         } else {
@@ -80,25 +75,25 @@ public class DetailsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (getSupportFragmentManager().findFragmentByTag("B") != null) {
-            getSupportFragmentManager().popBackStack("A_BC",
+        if (getSupportFragmentManager().findFragmentByTag(FRAGMENT_C) != null) {
+            getSupportFragmentManager().popBackStack(A_TO_BC,
                     FragmentManager.POP_BACK_STACK_INCLUSIVE);
             bottom.setVisibility(View.GONE);
         } else {
             Intent returnIntent = new Intent();
-            returnIntent.putExtra("result", (Serializable) movie);
+            returnIntent.putExtra(MainActivity.EXTRA_RESULT, (Serializable) movie);
             setResult(Activity.RESULT_OK, returnIntent);
             finish();
         }
     }
 
     private void showDetailsFragment() {
-        if (getSupportFragmentManager().findFragmentByTag("B") == null) {
+        if (getSupportFragmentManager().findFragmentByTag(FRAGMENT_C) == null) {
 
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(R.id.top, fDetails, "A")
-                    .addToBackStack("0_A")
+                    .replace(R.id.top, fDetails, FRAGMENT_A)
+                    .addToBackStack("")
                     .commit();
             bottom.setVisibility(View.GONE);
         }
@@ -107,9 +102,9 @@ public class DetailsActivity extends AppCompatActivity {
     private void showGalleryAndCastFragments() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.top, fGallery, "C")
-                .replace(R.id.bottom, fCast, "B")
-                .addToBackStack("A_BC")
+                .replace(R.id.top, fGallery, FRAGMENT_B)
+                .replace(R.id.bottom, fCast, FRAGMENT_C)
+                .addToBackStack(A_TO_BC)
                 .commit();
 
         bottom.setVisibility(View.VISIBLE);
