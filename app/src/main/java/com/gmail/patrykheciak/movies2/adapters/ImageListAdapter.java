@@ -1,4 +1,4 @@
-package com.gmail.patrykheciak.movies2.fragments;
+package com.gmail.patrykheciak.movies2.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import com.gmail.patrykheciak.lab2.movies.R;
 import com.squareup.picasso.Picasso;
 
 
-class ImageListAdapter extends ArrayAdapter {
+public class ImageListAdapter extends ArrayAdapter {
     private Context context;
     private LayoutInflater inflater;
 

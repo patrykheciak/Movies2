@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.GridView;
 
 import com.gmail.patrykheciak.lab2.movies.R;
+import com.gmail.patrykheciak.movies2.adapters.ImageListAdapter;
 import com.gmail.patrykheciak.movies2.entities.Movie;
 
 public class GalleryFragment extends Fragment {
