@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.gmail.patrykheciak.movies2.CastAdapter;
+import com.gmail.patrykheciak.movies2.adapters.CastAdapter;
 import com.gmail.patrykheciak.lab2.movies.R;
 import com.gmail.patrykheciak.movies2.entities.Movie;
 

@@ -1,4 +1,4 @@
-package com.gmail.patrykheciak.movies2;
+package com.gmail.patrykheciak.movies2.adapters;
 
 
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.gmail.patrykheciak.lab2.movies.R;
 import com.gmail.patrykheciak.movies2.entities.Actor;
+import com.gmail.patrykheciak.movies2.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;

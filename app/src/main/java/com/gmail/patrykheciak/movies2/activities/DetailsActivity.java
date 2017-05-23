@@ -1,4 +1,4 @@
-package com.gmail.patrykheciak.movies2;
+package com.gmail.patrykheciak.movies2.activities;
 
 import android.app.Activity;
 import android.content.Intent;

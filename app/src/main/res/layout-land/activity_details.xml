@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context="com.gmail.patrykheciak.movies2.DetailsActivity">
+    tools:context="com.gmail.patrykheciak.movies2.activities.DetailsActivity">
 
     <FrameLayout
         android:id="@+id/top"

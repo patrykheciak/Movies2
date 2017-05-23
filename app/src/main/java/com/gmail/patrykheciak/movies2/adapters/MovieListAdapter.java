@@ -1,4 +1,4 @@
-package com.gmail.patrykheciak.movies2;
+package com.gmail.patrykheciak.movies2.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

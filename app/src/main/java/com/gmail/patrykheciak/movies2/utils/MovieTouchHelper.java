@@ -1,8 +1,10 @@
-package com.gmail.patrykheciak.movies2;
+package com.gmail.patrykheciak.movies2.utils;
 
 
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
+
+import com.gmail.patrykheciak.movies2.adapters.MovieListAdapter;
 
 public class MovieTouchHelper extends ItemTouchHelper.SimpleCallback{
     private MovieListAdapter mMovieAdapter;

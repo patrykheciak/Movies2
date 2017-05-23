@@ -1,4 +1,4 @@
-package com.gmail.patrykheciak.movies2;
+package com.gmail.patrykheciak.movies2.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.util.Log;
 
 import com.gmail.patrykheciak.lab2.movies.R;
+import com.gmail.patrykheciak.movies2.adapters.MovieListAdapter;
+import com.gmail.patrykheciak.movies2.utils.MovieTouchHelper;
 import com.gmail.patrykheciak.movies2.entities.Actor;
 import com.gmail.patrykheciak.movies2.entities.Movie;
 import com.gmail.patrykheciak.movies2.interfaces.OnMovieItemClickListener;

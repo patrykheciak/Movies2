@@ -1,4 +1,4 @@
-package com.gmail.patrykheciak.movies2;
+package com.gmail.patrykheciak.movies2.utils;
 
 /*
  * Copyright 2014 Julian Shen
