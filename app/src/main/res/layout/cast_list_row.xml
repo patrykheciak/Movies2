@@ -3,20 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="8dp">
+    android:padding="@dimen/cast_list_row_padding">
 
     <ImageView
         android:id="@+id/cast_img"
-        android:layout_width="64dp"
-        android:layout_height="64dp" />
+        android:layout_width="@dimen/cast_list_row_photo_size"
+        android:layout_height="@dimen/cast_list_row_photo_size" />
 
     <TextView
         android:id="@+id/cast_name"
-
-        android:layout_marginLeft="16dp" android:layout_gravity="center"
-        android:textSize="20sp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/cast_list_row_margin_to_image"
+        android:textSize="@dimen/cast_list_row_text_size" />
 
 
 </LinearLayout>
