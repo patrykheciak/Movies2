@@ -90,7 +90,7 @@ public class DetailsFragment extends Fragment {
     public void onPause() {
         super.onPause();
         if (callback != null) {
-            callback.onMovieUpdated(movie);
+            callback.onMovieUpdated(movie, -1);
         }
     }
 

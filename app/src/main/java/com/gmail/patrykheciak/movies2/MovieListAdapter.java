@@ -54,7 +54,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 @Override
                 public boolean onLongClick(View view) {
                     Movie movie = toggleSeen(getLayoutPosition());
-                    callback.onMovieUpdated(movie);
+                    callback.onMovieUpdated(movie, getLayoutPosition());
                     seen.setVisibility(movie.isSeen() ? View.VISIBLE : View.INVISIBLE);
                     return true;
                 }
@@ -92,7 +92,7 @@ public class MovieListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 @Override
                 public boolean onLongClick(View view) {
                     Movie movie = toggleSeen(getLayoutPosition());
-                    callback.onMovieUpdated(movie);
+                    callback.onMovieUpdated(movie, getLayoutPosition());
                     seen.setVisibility(movie.isSeen() ? View.VISIBLE : View.INVISIBLE);
                     return true;
                 }

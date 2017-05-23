@@ -8,5 +8,5 @@ import com.gmail.patrykheciak.movies2.entities.Movie;
 
 public interface OnMovieUpdatedListener {
 
-    void onMovieUpdated(Movie movie);
+    void onMovieUpdated(Movie movie, int position);
 }

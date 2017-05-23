@@ -56,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
         });
         myAdapter.setOnMovieDataUpdatedListener(new OnMovieUpdatedListener() {
             @Override
-            public void onMovieUpdated(Movie movie) {
-                //movieList.set(position, movie);
+            public void onMovieUpdated(Movie movie, int position) {
+                movieList.set(position, movie);
             }
         });
         recyclerView.setAdapter(myAdapter);
